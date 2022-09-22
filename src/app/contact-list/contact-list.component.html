@@ -1,0 +1,12 @@
+<div>
+  <button>New Contact</button>
+  <input type="text"/>
+
+</div>
+<div class="contactList" >
+  <app-contact
+    *ngFor="let contactData of list"
+    [contact]="contactData"
+  ></app-contact>
+
+</div>
