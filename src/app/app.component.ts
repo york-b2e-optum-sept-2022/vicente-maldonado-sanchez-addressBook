@@ -34,8 +34,6 @@ export class AppComponent {
   onLogin (loginCreds: IAccount) {
 
     const foundAccount=this.accountList.find((account: IAccount) => {
-      console.log(account.username);
-      console.log(loginCreds.username);
       return account.username === loginCreds.username
         && account.password === loginCreds.password
     });
@@ -53,6 +51,11 @@ export class AppComponent {
     this.isCreating=false;
   }
 
+  addContact(contact: IContact) {
+    this.contactList.push(contact);
+    console.log(this.contactList);
+
+  }
 
   title = 'address-book';
 }

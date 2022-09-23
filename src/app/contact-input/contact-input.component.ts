@@ -21,12 +21,13 @@ export class ContactInputComponent implements OnInit {
   company: '',
   notes: ''
 }
+@Output() newContact = new EventEmitter<IContact>();
 
 
   constructor() { }
 
  onSubmit(){
-    console.log(this.contact)
+    this.newContact.emit(this.contact)
   }
 
   onCancelClick(){

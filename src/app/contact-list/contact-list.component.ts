@@ -14,12 +14,10 @@ export class ContactListComponent implements OnInit {
 
   }
   onClick() {
-    console.log('give')
     this.newContact.emit()}
 
 
   ngOnInit(): void {
-    console.log(this.list)
   }
 
 }

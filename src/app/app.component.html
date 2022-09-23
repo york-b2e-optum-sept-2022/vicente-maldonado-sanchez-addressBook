@@ -9,5 +9,5 @@
   (newContact)="newContact()">
 </app-contact-list>
 
-<app-contact-input *ngIf="isCreating===true" (onCancel)="cancelCreate()"></app-contact-input>
+<app-contact-input  *ngIf="isCreating===true" (onCancel)="cancelCreate()" (newContact)="addContact($event)" ></app-contact-input>
 </div>
