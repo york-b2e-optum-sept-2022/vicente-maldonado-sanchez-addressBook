@@ -1,8 +1,9 @@
 <div>
-  <button>New Contact</button>
-  <input type="text"/>
-
+  <button (click)="onClick()">New Contact</button>
+  <input placeholder="search" type="text"/>
 </div>
+
+
 <div class="contactList" >
   <app-contact
     *ngFor="let contactData of list"

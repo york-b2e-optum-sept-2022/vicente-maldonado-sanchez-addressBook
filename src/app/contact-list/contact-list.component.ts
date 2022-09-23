@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IContact} from "../Interfaces/IContact";
 
 @Component({
@@ -8,9 +8,15 @@ import {IContact} from "../Interfaces/IContact";
 })
 export class ContactListComponent implements OnInit {
 @Input() list!: IContact[];
+@Output() newContact = new EventEmitter<undefined>();
+
   constructor() {
 
   }
+  onClick() {
+    console.log('give')
+    this.newContact.emit()}
+
 
   ngOnInit(): void {
     console.log(this.list)

@@ -14,7 +14,8 @@ export class AppComponent {
     {username: 'admin',
   password: 'admin'}
   ]
-  isLoggedIn: Boolean = true;
+  isLoggedIn: boolean = true;
+  isCreating: boolean = false;
   contactList: IContact[] = [
     {id:0,
       name: 'contact 1',
@@ -27,6 +28,8 @@ export class AppComponent {
       phoneNumber: '123-456-7890',
       relation: 'friend'}
   ]
+
+
 
   onLogin (loginCreds: IAccount) {
 
@@ -41,6 +44,13 @@ export class AppComponent {
     }
     this.isLoggedIn=true
 
+  }
+  newContact() {
+  this.isCreating=true;
+  }
+
+  cancelCreate() {
+    this.isCreating=false;
   }
 
 
