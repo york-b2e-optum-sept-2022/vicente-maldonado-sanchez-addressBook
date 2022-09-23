@@ -9,6 +9,7 @@ import {IContact} from "../Interfaces/IContact";
 export class ContactListComponent implements OnInit {
 @Input() list!: IContact[];
 @Output() newContact = new EventEmitter<undefined>();
+@Output() deleteContat = new EventEmitter<IContact>();
 
   constructor() {
 
@@ -16,6 +17,11 @@ export class ContactListComponent implements OnInit {
   onClick() {
     this.newContact.emit()}
 
+  deleteThis(contact: IContact) {
+    console.log('Delete This')
+   this.deleteContat.emit(contact)
+
+  }
 
   ngOnInit(): void {
   }

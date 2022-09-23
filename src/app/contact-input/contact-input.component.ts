@@ -7,10 +7,10 @@ import {IContact} from "../Interfaces/IContact";
   styleUrls: ['./contact-input.component.css']
 })
 export class ContactInputComponent implements OnInit {
-
+ date= new Date()
   @Output() onCancel = new EventEmitter<undefined>();
   contact: IContact = {
-  id : -1,
+  id : this.date.getTime(),
   name: '',
   address: '',
   phoneNumber: '',
@@ -22,12 +22,14 @@ export class ContactInputComponent implements OnInit {
   notes: ''
 }
 @Output() newContact = new EventEmitter<IContact>();
+  @Output() onCreateNew = new EventEmitter<undefined>();
 
 
   constructor() { }
 
  onSubmit(){
     this.newContact.emit(this.contact)
+   this.onCreateNew.emit();
   }
 
   onCancelClick(){

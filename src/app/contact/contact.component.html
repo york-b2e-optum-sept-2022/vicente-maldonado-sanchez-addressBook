@@ -1,5 +1,5 @@
 
-<div class="contact">
+<div class="contact" *ngIf="isUpdating===false;">
   <div>Name: {{contact.name}}</div>
   <div>Address: {{contact.address}}</div>
   <div>Phone Number: {{contact.phoneNumber}}</div>
@@ -9,6 +9,20 @@
   <div>Company: {{contact.company}}</div>
   <div>Notes: {{contact.notes}}</div>
   <div>Birthday: {{contact.birthday}}</div>
-
+  <button (click)="onUpdateClick()">Update</button>
+  <button class="delete" (click)="onDeleteClick()">Delete</button>
 </div>
 
+<div class="contact" *ngIf="isUpdating===true;">
+  Name: <input [(ngModel)]="contact.name"> <br>
+  Address: <input [(ngModel)]="contact.address"> <br>
+  Phone Number: <input [(ngModel)]="contact.phoneNumber"> <br>
+  Met on:<input [(ngModel)]="contact.meetDate" type="Date"> <br>
+  Email:<input [(ngModel)]="contact.email"> <br>
+  Relation: <input [(ngModel)]="contact.relation"><br>
+  Company: <input [(ngModel)]="contact.company"><br>
+  Notes: <input [(ngModel)]="contact.notes"><br>
+  Birthday: <input [(ngModel)]="contact.birthday" type="Date"><br>
+  <button (click)="onSaveClick()">Save</button>
+  <button (click)="onCancelClick()">Cancel</button>
+</div>

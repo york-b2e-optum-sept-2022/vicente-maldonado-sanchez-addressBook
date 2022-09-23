@@ -6,8 +6,13 @@
 <app-contact-list
   *ngIf="isCreating===false"
   [list]="contactList"
-  (newContact)="newContact()">
+  (newContact)="newContact()"
+  (deleteContat)="deleteContact($event)">
 </app-contact-list>
 
-<app-contact-input  *ngIf="isCreating===true" (onCancel)="cancelCreate()" (newContact)="addContact($event)" ></app-contact-input>
+<app-contact-input
+  (onCreateNew)="notCreating()"
+  *ngIf="isCreating===true"
+  (onCancel)="notCreating()"
+  (newContact)="addContact($event)" ></app-contact-input>
 </div>

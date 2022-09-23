@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {IAccount} from "./Interfaces/IAccount";
 import {IContact} from "./Interfaces/IContact";
+import {ContactInputComponent} from "./contact-input/contact-input.component";
 
 
 @Component({
@@ -47,13 +48,21 @@ export class AppComponent {
   this.isCreating=true;
   }
 
-  cancelCreate() {
+  notCreating() {
     this.isCreating=false;
   }
 
   addContact(contact: IContact) {
     this.contactList.push(contact);
     console.log(this.contactList);
+
+  }
+
+  deleteContact(contactToDelete:IContact) {
+  console.log(contactToDelete);
+    this.contactList =
+      this.contactList.filter(
+        contact => contact.id !== contactToDelete.id);
 
   }
 
